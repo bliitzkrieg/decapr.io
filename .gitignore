@@ -16,4 +16,8 @@
 !/log/.keep
 /tmp
 
+# Vagrant
 /.vagrant
+
+#RubyMine
+/.idea
