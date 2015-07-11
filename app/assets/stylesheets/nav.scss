@@ -1,0 +1,13 @@
+.navbar{
+	height: $navbar-height;
+	background-color: $dark-blue;
+	border: none;
+	&.affix-top{
+		position: static;
+		margin:-50px 0 0 0;
+	}
+}
+
+.navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a {
+	color: $white;
+}

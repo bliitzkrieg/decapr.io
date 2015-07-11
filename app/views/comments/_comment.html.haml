@@ -1,0 +1,13 @@
+%div.comment.clearfix
+  %div.comment-content
+    %p.comment-name
+      %strong
+        = comment.name
+    %p.comment-body
+      = comment.body
+    %p.comment-time
+      = time_ago_in_words(comment.created_at)
+      Ago
+  %p
+    - if user_signed_in?
+      = link_to "Delete comment", [comment.post, comment], method: :delete
