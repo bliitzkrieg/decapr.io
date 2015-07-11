@@ -1,0 +1,20 @@
+{
+  "name": "decapr.io",
+  "version": "1.0.0",
+  "homepage": "http://www.decapr.io",
+  "authors": [
+    "Luca DeCaprio"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "typed.js": "*"
+  }
+}

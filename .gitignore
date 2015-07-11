@@ -21,3 +21,5 @@
 
 #RubyMine
 /.idea
+
+/vendor
