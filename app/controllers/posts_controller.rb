@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+	before_action :authenticate_user!, except: [:index, :show]
     before_action :set_post, only: [:show, :edit, :update, :destroy]
 
 	def index
@@ -6,18 +7,40 @@ class PostsController < ApplicationController
 	end
 
 	def new
-		@post = Post.new
+	    @post = Post.new
 	end
 
 	def create
-		if @post = Post.create(post_params)
+		@post = Post.new(post_params)
+
+		if @post.save
+		  flash[:success] = "Your post has been created!"
           redirect_to @post
         else
-          render :new
+          render 'new'
+        end
+	end
+
+	def edit
+	end
+
+	def update
+		if @post.update(post_params)
+          flash[:success] = "Post updated."
+          redirect_to posts_path
+        else
+          flash[:alert] = "Your post failed to update."
+          render :edit
         end
 	end
 
 	def show	
+	end
+
+	def destroy
+      @post.destroy
+      flash[:success] = "Post deleted."
+      redirect_to posts_path
 	end
 
 	private

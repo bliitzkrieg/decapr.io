@@ -1,3 +1,22 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  $('.navbar').affix offset:
+    top: ->
+      @bottom = $('.hero').outerHeight(true)
+
+  $('.typer').typed
+    strings: [
+      'a javascript wizard'
+      'a front-end developer'
+      'Luca.'
+    ]
+    typeSpeed: 0
+    cursorChar: '_'
+    backDelay: 200
+    backSpeed: 10
+    callback: ->
+      setTimeout (->
+        $('.sub-title').addClass 'active'
+        return
+      ), 100
+      return
+  return

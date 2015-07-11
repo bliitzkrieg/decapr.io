@@ -1,9 +1,21 @@
+%div
+  = link_to "Back to Posts", posts_path
 %h1.title
   = @post.title
-</h1
 %p
   Submitted #{time_ago_in_words(@post.created_at)} ago
-</p
+  - if user_signed_in?
+    |
+    = link_to "Edit", edit_post_path
+    |
+    = link_to "Delete", post_path, method: :delete, data: { confirm: 'Are you sure?' }
 %p
   = @post.content
-</p
+%div.comments
+  %h2
+    = @post.comments.count
+    Comments
+  = render @post.comments
+  %h3
+    Add a comment:
+  = render "comments/form"

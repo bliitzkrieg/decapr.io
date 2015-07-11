@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
-  root 'home#index'
-  resources :posts
-  
+  devise_for :users
+
+  resources :posts do
+  	resources :comments
+  end
+
+  root 'pages#index'
+  get '/contact', to: 'pages#contact'
+  get '/portfolio', to: 'pages#portfolio'
 end

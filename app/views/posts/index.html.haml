@@ -1,12 +1,11 @@
 %h2
   Posts
-</h2
 -@post.each do |post|
   %div.post_container
     %h2.post-title
       = link_to post.title, post
-    </h2
+    %p.content
+      = truncate(post.content, :length => 80)
     %p.date
       Posted on 
       = post.created_at.strftime("%B, %d, %Y")
-    </p

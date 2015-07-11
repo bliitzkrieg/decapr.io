@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body { 
-    padding-top: 65px; 
-}
+@import "variables";
+
+@import "core";
+@import "nav";
+@import "utility";
+
+@import "home";

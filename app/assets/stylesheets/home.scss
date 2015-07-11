@@ -1,3 +1,55 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.hero{
+ 	height: 100vh;
+ 	margin-top: -50px;
+ 	padding-top: 25vh;
+}
+
+.hero-image{
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background: url(/assets/lucadecaprio.png) no-repeat;
+    background-size: contain;
+    background-color: white;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.typer{
+    display: inline;
+}
+
+.typed-cursor{
+    display: inline;
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-webkit-keyframes thumb {
+    0% { -webkit-transform: scale(1); }
+    50% { -webkit-transform: scale(0.9); }
+    100% { -webkit-transform: scale(1); }
+}

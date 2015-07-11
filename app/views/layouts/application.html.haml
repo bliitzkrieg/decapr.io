@@ -3,12 +3,16 @@
   %head
     %title= content_for?(:title) ? yield(:title) : "decapr.io"
     = stylesheet_link_tag :application, :media => "all", 'data-turbolinks-track' => true
-    = stylesheet_link_tag :application, :meddia => "all", :href => "http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
-    
+    = stylesheet_link_tag :application, :media => "all", :href => "http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    = stylesheet_link_tag :application, :media => "all", :href => "http://fonts.googleapis.com/css?family=Abel"
     = javascript_include_tag :application, 'data-turbolinks-track' => true
     = csrf_meta_tags
   </head
   %body#page-top
+    .container
+      -flash.each do |name, msg|
+        = content_tag :div, msg, class: [:alert, alert_for(name)]
+      = yield
     %nav.navbar.navbar-default.navbar-fixed-top
       %div.container
         %div.navbar-header.page-scroll
@@ -19,7 +23,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand.page-scroll{"href" => "#page-top"}
+          %a.navbar-brand.page-scroll{"href" => "/"}
             decapr.io
         %div.collapse.navbar-collapse#bs-example-navbar-collapse-1
           %ul.nav.navbar-nav.navbar-right
@@ -28,16 +32,11 @@
             %li.page-scroll
               = link_to "Blog", posts_path
             %li.page-scroll
-              %a{"href" => "#"}
-                Contact
+              = link_to "Contact", contact_path
             %li.page-scroll
-              %a{"href" => "#"}
-                Portfolio
+              = link_to "Portfolio", portfolio_path
             %li.page-scroll
-              %a{"href" => "#"}
-                Login
-
-    .container
-      = yield
-  </body
-</html
+              - if user_signed_in?
+                = link_to 'Logout', destroy_user_session_path, :method => :delete
+              - else
+                = link_to 'Login', new_user_session_path
