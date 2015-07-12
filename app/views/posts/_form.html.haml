@@ -2,7 +2,7 @@
   = simple_form_for @post, html: { class: 'form-horizontal' } do |f|
     .form-group
       = f.input :title
-    .form-group.text-center
-      = f.input :content, as: :pagedown, input_html: { preview: true, rows: 20 }
-    .form-group.text-center
+    .form-group
+      = f.input :content, as: :pagedown, input_html: { preview: true, rows: 20, data: :content }
+    .form-group
       = f.button :submit, class: 'btn btn-success'
