@@ -1,4 +1,5 @@
-$ ->
+ready = ->
+
   $('.navbar').affix offset:
     top: ->
       @bottom = $('.hero').outerHeight(true)
@@ -19,4 +20,6 @@ $ ->
         return
       ), 100
       return
-  return
+
+$(document).ready(ready)
+$(document).on('page:load', ready)

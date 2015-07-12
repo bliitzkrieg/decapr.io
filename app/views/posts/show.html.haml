@@ -10,7 +10,7 @@
     |
     = link_to "Delete", post_path, method: :delete, data: { confirm: 'Are you sure?' }
 %p
-  = @post.content
+  = markdown(@post.content)
 %div.comments
   %h2
     = @post.comments.count

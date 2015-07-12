@@ -3,6 +3,6 @@
     .form-group
       = f.input :title
     .form-group.text-center
-      = f.input :content, input_html: { class: 'form-control' }
+      = f.input :content, as: :pagedown, input_html: { preview: true, rows: 20 }
     .form-group.text-center
       = f.button :submit, class: 'btn btn-success'

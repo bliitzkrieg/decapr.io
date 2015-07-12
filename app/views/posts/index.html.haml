@@ -5,7 +5,7 @@
     %h2.post-title
       = link_to post.title, post
     %p.content
-      = truncate(post.content, :length => 80)
+      = markdown(truncate(post.content, :length => 80))
     %p.date
       Posted on 
       = post.created_at.strftime("%B, %d, %Y")
