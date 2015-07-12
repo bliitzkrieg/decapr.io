@@ -3,6 +3,8 @@
     .form-group
       = f.input :title
     .form-group
+      = f.input :tag_list, label: "Tags (Seperated by commas)", input_html: { value: f.object.tag_list.join(", ") }
+    .form-group
       = f.input :content, as: :pagedown, input_html: { preview: true, rows: 20, data: :content }
     .form-group
       = f.button :submit, class: 'btn btn-success'

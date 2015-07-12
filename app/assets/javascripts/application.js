@@ -17,4 +17,3 @@
 //= require_tree .
 //= require typed.js/dist/typed.min.js
 //= require pagedown_bootstrap
-//= require pagedown_init

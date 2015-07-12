@@ -3,7 +3,7 @@
 %h1.title
   = @post.title
 %p
-  Submitted #{time_ago_in_words(@post.created_at)} ago
+  Posted as #{ tag_links(@post.tag_list)} - Submitted #{time_ago_in_words(@post.created_at)} ago
   - if user_signed_in?
     |
     = link_to "Edit", edit_post_path

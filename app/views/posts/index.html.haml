@@ -1,5 +1,9 @@
 %h2
   Posts
+
+%div.tag_cloud
+  = get_tag_cloud
+
 -@post.each do |post|
   %div.post_container
     %h2.post-title

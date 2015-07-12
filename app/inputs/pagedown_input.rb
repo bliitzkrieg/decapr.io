@@ -5,7 +5,7 @@ class PagedownInput < SimpleForm::Inputs::TextInput
     html_options = input_html_options.merge(class: 'wmd-input', id: "wmd-input-#{attribute_name}")
     out << "#{@builder.text_area(attribute_name, merge_options(html_options, wrapper_options)) }"
     if input_html_options[:preview]
-      out << "<div id=\"wmd-preview-#{attribute_name}\" class=\"wmd-preview\">{input_html_options[:preview]}</div>"
+      out << "<div id=\"wmd-preview-#{attribute_name}\" class=\"wmd-preview\"></div>"
     end
     out.html_safe
   end
