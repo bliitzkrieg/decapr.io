@@ -1,5 +1,6 @@
 ActiveAdmin.register Post do
 	permit_params :title, :content, :published_at
+
 	scope :unpublished
 	scope :published
 	scope :all
@@ -19,5 +20,12 @@ ActiveAdmin.register Post do
 		actions
 	end
 
+ 	controller do
+		def new
+			super do |format|
+				@post.published_at = DateTime.now
+			end
+		end
+	end
 
 end

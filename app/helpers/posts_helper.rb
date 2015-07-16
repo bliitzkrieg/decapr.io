@@ -11,5 +11,10 @@ module PostsHelper
 		end
 		links.join(' ').html_safe
 	end
-	
+
+	def displayPublished(published_at)
+		if current_user && published_at == nil
+			" - Not Published"
+		end
+	end
 end

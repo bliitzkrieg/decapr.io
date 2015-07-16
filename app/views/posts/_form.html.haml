@@ -7,4 +7,6 @@
     .form-group
       = f.input :content, as: :pagedown, input_html: { preview: true, rows: 20, data: :content }
     .form-group
+      = f.input :publish_now, label: "Publish now?",  as: :boolean, :input_html => { :checked => @post.published_at == nil ? false : true }
+    .form-group
       = f.button :submit, class: 'btn btn-success'

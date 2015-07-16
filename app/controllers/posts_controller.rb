@@ -4,18 +4,20 @@ class PostsController < ApplicationController
 
 	def index
 		if params[:tag]
-			@post = Post.tagged_with(params[:tag])
+			@post =  Post.published(current_user).tagged_with(params[:tag])
 		else
-			@post = Post.all.order('created_at DESC')
+			@post = Post.published(current_user).order('created_at DESC')
 		end
 	end
 
 	def new
-	    @post = Post.new
+		@post = Post.new
 	end
 
 	def create
 		@post = Post.new(post_params)
+
+		@post.published_at = params[:post][:publish_now] === "1" ? DateTime.now : nil
 
 		if @post.save
 		  flash[:success] = "Your post has been created!"
@@ -29,7 +31,10 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		if @post.update(post_params)
+
+		@post.published_at = params[:post][:publish_now] === "1" ? DateTime.now : nil
+
+		if @post.save
           flash[:success] = "Post updated."
           redirect_to posts_path
         else
@@ -50,7 +55,7 @@ class PostsController < ApplicationController
 	private
 
 		def post_params
-			params.require(:post).permit(:title, :content, :tag_list)
+			params.require(:post).permit(:title, :content, :tag_list, :published_at)
 		end
 
 		def set_post

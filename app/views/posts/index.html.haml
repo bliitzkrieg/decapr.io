@@ -13,3 +13,4 @@
     %p.date
       Posted on 
       = post.created_at.strftime("%B, %d, %Y")
+      = displayPublished(post.published_at)
